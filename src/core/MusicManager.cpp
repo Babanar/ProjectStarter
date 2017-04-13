@@ -37,7 +37,8 @@ void MusicManager::loadFromDir(string dir)
 {
     vector<string> files = listOfFiles(dir);
     for(string s:files){
-        addMusic(dir+s);
+        if(s!="."&&s!="..")
+            addMusic(dir+s);
     }
 }
 
