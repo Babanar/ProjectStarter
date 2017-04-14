@@ -5,11 +5,18 @@
 #include "core/Ressource.hpp"
 #include "core/MusicManager.hpp"
 
+#include "poloniex/API.hpp"
+#include <iostream>
+
 using namespace sf;
 using namespace std;
 
 int main()
 {
+    //TEST DE L'INTERFACE D'ABSTRACTION, NON EFFECTUABLE DERRIERE UN PROXY
+    //C'EST POURQUOI JE N'AI PAS ENCORE PU LE TESTER...
+    cout << plnx::API::getTicker() << endl;
+
     srand(time(NULL));
 
     RenderWindow window(VideoMode(800, 600), "Game");

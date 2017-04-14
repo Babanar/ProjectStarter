@@ -18,17 +18,19 @@ namespace plnx{
             void setSecret(string Secret) { _Secret = Secret; }
             void setAPI_Key(string API_Key) { _API_Key = API_Key; }
 
+            static string getTicker();
+
         protected :
+
             string requestWebApi(map<string,string> getParameters = map<string,string>()
                                  ,map<string,string> postParameters = map<string,string>());
 
-
-
+            static string requestPublicWebApi(map<string,string> getParameters = map<string,string>());
 
         protected:
             string _Secret;
             string _API_Key;
-            Http _poloniexConnexion;
+            static Http _poloniexConnexion;
 
         private:
     };
