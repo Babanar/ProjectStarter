@@ -6,6 +6,7 @@
 #include "core/MusicManager.hpp"
 
 #include "poloniex/API.hpp"
+#include "Application.hpp"
 #include <iostream>
 
 using namespace sf;
@@ -15,9 +16,22 @@ int main()
 {
     //TEST DE L'INTERFACE D'ABSTRACTION, NON EFFECTUABLE DERRIERE UN PROXY
     //C'EST POURQUOI JE N'AI PAS ENCORE PU LE TESTER...
-    cout << plnx::API::getTicker() << endl;
+   // cout << plnx::API::getTicker() << endl;
 
-    srand(time(NULL));
+
+    //Application app;
+    //app.launch();
+    RenderWindow m_window;
+    m_window.create(sf::VideoMode(800, 600), "Trade Inteface");
+
+    while(m_window.isOpen()){
+
+        m_window.clear();
+        m_window.display();
+        sleep(seconds(1/60.f));
+    }
+
+ /*   srand(time(NULL));
 
     RenderWindow window(VideoMode(800, 600), "Game");
     window.setMouseCursorVisible(false);
@@ -73,6 +87,6 @@ int main()
         window.draw(spriteWindow);
         window.display();
     }
-
+*/
     return 0;
 }
