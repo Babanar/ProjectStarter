@@ -35,18 +35,22 @@ void MusicManager::setVolume(float newVolume){
 
 void MusicManager::loadFromDir(string dir)
 {
+    cout << "Chargement de musique a partir du repertoire \"" << dir << "\"..." << endl;
     vector<string> files = listOfFiles(dir);
     for(string s:files){
-        addMusic(dir+s);
+        if(s!="."&&s!="..")
+            addMusic(dir+s);
     }
 }
 
 void MusicManager::addMusic(string dir)
 {
+    cout << "Chargement de la musique \"" << dir << "\" ..." << endl;;
     musics.push_back(shared_ptr<Music>(new Music()));
-    if(!musics.back()->openFromFile(dir))
+    if(!musics.back()->openFromFile(dir)){
         musics.pop_back();
-    else{
+        cerr << "Musique non trouvee..." << endl;
+    }else{
         musics.back()->setLoop(false);
     }
 }

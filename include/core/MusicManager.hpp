@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <list>
+#include <iostream>
 #include "core/Ressource.hpp"
 
 using namespace std;
